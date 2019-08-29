@@ -1,0 +1,36 @@
+{
+  "name": "file_uploading",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=10.13.0",
+    "npm": ">=6.4.1"
+  },
+  "author": "Salman Bukhari",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "mime-types": "^2.1.24",
+    "mongodb": "^3.3.0",
+    "mongoose": "^5.6.9",
+    "multer": "1.1.0",
+    "nodemailer": "^6.3.0",
+    "path": "^0.12.7",
+    "shortid": "^2.2.14",
+    "validate": "^4.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "should": "~7.1.0",
+    "supertest": "~1.1.0"
+  }
+}
