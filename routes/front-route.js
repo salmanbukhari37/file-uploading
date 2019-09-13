@@ -7,6 +7,8 @@ const fileController = require("../controllers/FileController");
 // File uploading view
 router.get("/", fileController.GetFile);
 
+router.get("/image", fileController.ShowFile);
+
 module.exports = {
   router
 };

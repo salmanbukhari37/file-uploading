@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="form-container">
+    <h3>Please select file *</h3>
+
+    <input
+      type="file"
+      id="customFile"
+      name="userPhotos"
+      ng2FileSelect
+      [uploader]="uploader"
+    />
+
+    <button
+      class="btn btn-success btn-s"
+      (click)="uploader.uploadAll()"
+      [disabled]="!uploader.getNotUploadedItems().length"
+    >
+      Upload an image
+    </button>
+  </div>
+</div>

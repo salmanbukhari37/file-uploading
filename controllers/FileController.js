@@ -15,7 +15,9 @@ const UploadFile = (req, res) => {
       addFile.FileName = req.files[i].filename;
       addFile.FilePath = req.files[i].path;
 
-      addFile.save((err, result) => {});
+      addFile.save((err, result) => {
+        res.send(result);
+      });
     }
   }
 };
@@ -32,10 +34,34 @@ const GetFile = (req, res) => {
   //     (err, result) => {}
   //   );
   //   console.log(__dirname + "/../index.html");
+  // res.sendFile(path.join(__dirname, "/../index.html"));
+
   res.sendFile(path.join(__dirname, "/../index.html"));
+};
+
+const ShowFile = (req, res) => {
+  FileModel.find((err, result) => {
+    res.render("image", {
+      data: result
+    });
+  });
+};
+
+const getCircularReplacer = () => {
+  const seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
 };
 
 module.exports = {
   GetFile,
-  UploadFile
+  UploadFile,
+  ShowFile
 };

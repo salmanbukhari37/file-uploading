@@ -6,6 +6,7 @@ var path = require("path");
 var fileRoute = require("./routes/file-route").router;
 var frontAppRoute = require("./routes/front-route").router;
 const dbConfig = require("./dbConfig/config");
+const jwt = require("jsonwebtoken");
 
 const PORT = 4000;
 
@@ -17,10 +18,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+
 // serving static content
 app.use(express.static(path.join(__dirname, "public")));
-
-app.set("view engine", "ejs");
 
 app.use("/", frontAppRoute);
 // api routes
